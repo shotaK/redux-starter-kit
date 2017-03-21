@@ -3,7 +3,7 @@ import {render} from 'react-dom'
 import {Provider} from 'react-redux'
 import Home from './components/home/Home'
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Route,
   Link
 } from 'react-router-dom'
