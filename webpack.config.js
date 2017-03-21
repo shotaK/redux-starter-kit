@@ -9,16 +9,19 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 
 module.exports = {
   entry: './src/index.js',
+  devtool: 'source-map',
   output: {
     path: path.resolve('dist'),
     filename: 'index_bundle.js'
   },
-  devtool: 'source-map',
   module: {
     loaders: [
       {test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/},
       {test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/}
     ]
   },
-  plugins: [HtmlWebpackPluginConfig]
+  plugins: [HtmlWebpackPluginConfig],
+  devServer: {
+    historyApiFallback: true,
+  }
 };
