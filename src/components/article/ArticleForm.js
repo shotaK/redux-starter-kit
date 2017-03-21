@@ -1,5 +1,5 @@
 import React, {PropTypes, Component} from 'react';
-import { bindActionCreators } from 'redux';
+import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as articleActionCreators from '../../redux/article/article.actions';
 
@@ -12,7 +12,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 @connect(mapStateToProps, mapDispatchToProps)
-export default class App extends Component {
+export default class ArticleForm extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
@@ -39,16 +39,16 @@ export default class App extends Component {
         <form onSubmit={this.handleSubmit}>
           <label>
             Name:
-            <input type="text" value={this.state.text} onChange={this.handleChange} />
+            <input type="text" value={this.state.text} onChange={this.handleChange}/>
           </label>
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Submit"/>
         </form>
       </div>
     )
   }
 }
 
-App.propTypes = {
+ArticleForm.propTypes = {
   articles: PropTypes.object,
   actions: PropTypes.object,
 };
