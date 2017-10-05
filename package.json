@@ -18,6 +18,11 @@
   ],
   "author": "Shota Karkashadze <sh.karkashadze@gmail.com>",
   "license": "MIT",
+  "homepage": "https://github.com/shotaK/redux-starter-kit",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shotaK/redux-starter-kit"
+  },
   "dependencies": {
     "bootstrap": "^3.3.7",
     "html-webpack-plugin": "^2.28.0",
