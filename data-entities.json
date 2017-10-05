@@ -1,0 +1,38 @@
+[
+  {
+    "name": "firewall",
+    "icon": "firewall.png",
+    "states": [
+      {
+        "name": "accepted",
+        "theme": "green"
+      },
+      {
+        "name": "rejected",
+        "theme": "red"
+      },
+      {
+        "name": "running",
+        "theme": "blue"
+      }
+    ]
+  },
+  {
+    "name": "build",
+    "icon": "computer-build.png",
+    "states": [
+      {
+        "name": "complete",
+        "theme": "green"
+      },
+      {
+        "name": "failed",
+        "theme": "grey"
+      },
+      {
+        "name": "pending",
+        "theme": "grey"
+      }
+    ]
+  }
+]
