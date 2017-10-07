@@ -2,7 +2,7 @@
 
 React/Redux starter kit.
 
-##Features: 
+## Features: 
 * Supports decorators, spread operator and many other new types of expressions.
 * Feature based structure
 * Immutability integrated
