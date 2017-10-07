@@ -1,21 +1,23 @@
 import React, {
   Component,
-  PropTypes,
 } from 'react';
 import map from 'lodash.map';
+import PropTypes from 'prop-types';
+
+import ResultRender from '../shared/ResultRender';
 import Entity from './Entity';
 
 class Entities extends Component {
   componentDidMount() {
-    this.props.entitiesActions.fetchEntities();
+    this.props.entityListActions.fetchEntities();
   }
 
   render() {
-    const { entities, isFetching } = this.props.entitiesElements;
+    const {entity} = this.props;
     return (
       <div className="container">
-        <div className="table-responsive">
-          {isFetching ? <p>Loading Entities...</p> :
+        <ResultRender entity={entity}>
+          <div className="table-responsive">
             <table className="table">
               <thead>
               <tr>
@@ -31,18 +33,25 @@ class Entities extends Component {
               </thead>
               <tbody>
               {
-                map(entities, (entity, index) => <Entity key={index} entity={entity}/>)
+                map(entity.entities, (entity, index) => <Entity key={index} entity={entity}/>)
               }
-            </tbody>
-          </table>
-          }
-        </div>
+              </tbody>
+            </table>
+          </div>
+        </ResultRender>
       </div>
     );
   }
 }
 
-Entities.propTypes = {};
+Entities.propTypes = {
+  entitiesActions: PropTypes.object,
+  entity: PropTypes.shape({
+    isFetching: PropTypes.bool,
+    errorMessage: PropTypes.string,
+    entities: PropTypes.array
+  }),
+};
 Entities.defaultProps = {};
 
 export default Entities;

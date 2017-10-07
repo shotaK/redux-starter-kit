@@ -1,30 +1,31 @@
-import {
-  GET_ENTITIES_STARTED, GET_ENTITIES_SUCCEEDED,
-  GET_ENTITIES_FAILED
-} from './entity-list.actions';
+import Immutable from 'immutable';
 
-const entities = (state = {isFetching: false, entities: []}, action) => {
+import { ENTITIES } from './entity-list.actions';
+import { REQUEST, SUCCESS, FAILURE } from '../common/actions-utils';
+
+const initialState = Immutable.Map({
+  isFetching: false,
+  entities: [],
+  errorMessage: ''
+});
+
+const entity = (state = initialState, action) => {
   switch (action.type) {
-    case GET_ENTITIES_STARTED:
-      return {
-        ...state,
-        isFetching: true,
-      };
-    case GET_ENTITIES_SUCCEEDED:
-      return {
-        ...state,
-        isFetching: false,
-        entities: action.entities,
-      };
-    case GET_ENTITIES_FAILED:
-      return {
-        ...state,
-        isFetching: false,
-        // failureReason: action.entities,
-      };
+    case ENTITIES + REQUEST :
+      return state.set('isFetching', true);
+    case ENTITIES + SUCCESS:
+      return state.withMutations(s =>
+        s.set('isFetching', false)
+          .set('entities', Immutable.fromJS(action.entities))
+      );
+    case ENTITIES + FAILURE:
+      return state.withMutations(s =>
+        s.set('isFetching', false)
+          .set('errorMessage', action.errorMessage)
+      );
     default:
       return state
   }
 };
 
-export default entities;
+export default entity;

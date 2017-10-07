@@ -1,43 +1,42 @@
 [
   {
-    "type": "firewall",
+    "type": "pc",
     "name": 432462,
-    "owner": "jtuck",
+    "owner": "junior",
     "timeStarted": "4/18/2014 12:12am",
     "state": "running",
     "criteria": {
-      "metrics": "running",
-      "build": ""
+      "metrics": "running"
     }
   },
   {
-    "type": "firewall",
+    "type": "pc",
     "name": 432461,
-    "owner": "samy",
+    "owner": "bob",
     "timeStarted": "4/18/2014 10:53am",
-    "state": "rejected"
+    "state": "failed"
   },
   {
-    "type": "firewall",
+    "type": "pc",
     "name": 432459,
     "owner": "samy",
     "timeStarted": "4/16/2014 6:43am",
-    "state": "accepted"
+    "state": "running"
   },
   {
-    "type": "build",
-    "name": "Tenrox-R1_1235",
-    "state": "pending"
+    "type": "phone",
+    "name": "Iphone",
+    "state": "starting"
   },
   {
-    "type": "build",
-    "name": "Tenrox-R1_1234",
+    "type": "phone",
+    "name": "Samsung a5",
     "timeStarted": "4/17/2014 9:42am",
-    "state": "complete"
+    "state": "running"
   },
   {
-    "type": "build",
-    "name": "Tenrox-R1_1233",
+    "type": "phone",
+    "name": "Nokia",
     "state": "failed"
   }
 ]

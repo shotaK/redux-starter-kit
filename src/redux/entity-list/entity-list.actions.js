@@ -1,19 +1,12 @@
-export const GET_ENTITIES_STARTED = 'GET_ENTITIES_STARTED';
-export const GET_ENTITIES_SUCCEEDED = 'GET_ENTITIES_SUCCEEDED';
-export const GET_ENTITIES_FAILED = 'GET_ENTITIES_FAILED';
+import { makeActionCreator, REQUEST, SUCCESS, FAILURE, makeAsyncRequest } from '../common/actions-utils';
+import { ENTITY_LIST_URL } from '../common/api-urls';
 
-export const requestEntities = () => ({
-  type: GET_ENTITIES_STARTED
-});
+export const ENTITIES = 'ENTITIES';
 
-export const receiveEntities = (json) => ({
-  type: GET_ENTITIES_SUCCEEDED,
-  entities: json,
-});
-
-export const fetchEntities = () => dispatch => {
-  dispatch(requestEntities());
-  return fetch(`../data-entity-list.json`)
-    .then(response => response.json())
-    .then(json => dispatch(receiveEntities(json)))
-};
+export const fetchEntities = () => makeAsyncRequest(
+  ENTITY_LIST_URL,
+  'get',
+  makeActionCreator(ENTITIES + REQUEST),
+  makeActionCreator(ENTITIES + SUCCESS, 'entities'),
+  makeActionCreator(ENTITIES + FAILURE, 'errorMessage')
+);
